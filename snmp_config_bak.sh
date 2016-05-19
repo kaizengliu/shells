@@ -75,7 +75,7 @@ check_status $? "set CISCO-CONFIG-COPY-MIB::ccCopyProtocol tftp fail"
 snmpset -c "$community" -v 2c $device_ip 1.3.6.1.4.1.9.9.96.1.1.1.1.3.$rnd i 4 >/dev/null
 check_status $? "set CISCO-CONFIG-COPY-MIB::ccCopySourceFileType runningConfig fail"
 
-echo `snmpset -c "$community" -v 2c $device_ip 1.3.6.1.4.1.9.9.96.1.1.1.1.4.$rnd i 1` >/dev/null
+snmpset -c "$community" -v 2c $device_ip 1.3.6.1.4.1.9.9.96.1.1.1.1.4.$rnd i 1 >/dev/null
 check_status $? "set CISCO-CONFIG-COPY-MIB::ccCopyDestFileType networkFile fail"
 
 snmpset -c "$community" -v 2c $device_ip 1.3.6.1.4.1.9.9.96.1.1.1.1.5.$rnd a $tftp_server >/dev/null
